@@ -17,8 +17,12 @@ def add_favourite_song(song)
   @favourite_songs.push(song)
 end
 
-def pay_room(room)
+def pay(room)
   @money -= room.fee
+end
+def age()
+  return true if @age >=18
+  return false if @age <18
 end
 
 

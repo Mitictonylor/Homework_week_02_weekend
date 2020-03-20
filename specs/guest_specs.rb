@@ -17,6 +17,10 @@ class TestGuest < Minitest::Test
     @song4 = Song.new("shakira", "hips don't lie")
     @guest = Guest.new("Antonio",@favourite_songs, 23.5, 32)
     @room1 = Room.new("Room 1", 2, 3.0,)
+    @song4 = Song.new("acdc", "welcome to the jungle")
+    @song5 = Song.new("shakira", "Hips don't lie")
+    @favourite_songs2 = [@song1, @song4, @song5]
+    @guest2 = Guest.new("Angelo", @favourite_songs2, 12.4,16)
   end
 
  def test_check_favourite_songs()
@@ -27,9 +31,16 @@ def test_add_favourite_song()
   @guest.add_favourite_song(@song4)
   assert_equal(4, @guest.check_favourite_songs_size() )
 end
-
 def test_pay_room()
-  @guest.pay_room(@room1)
-  assert_equal(20.5,@guest.money())
+  assert_equal(20.5, @guest.pay(@room1))
 end
+def test_age_is_more_than_18()
+assert_equal(true, @guest.age())
+end
+
+def test_age_is_less_than_18()
+assert_equal(false, @guest2.age())
+end
+
+
 end
