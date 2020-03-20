@@ -24,6 +24,10 @@ class TestRoom < Minitest::Test
     @drink3 = Bar.new(:water, 1.5, 0)
     @drink4 = Bar.new(:soda, 3.5, 0)
     @drink5 = Bar.new(:liquor, 3.0 ,5 )
+    @favourite_songs3 = [@song2, @song3, @song4]
+    @guest3 = Guest.new("Asia", @favourite_songs3, 2.5,16)
+    @guest4 = Guest.new("Alfonso", @favourite_songs2, 25.5,40)
+
 
 
   end
@@ -46,15 +50,21 @@ end
     assert_equal(6.0, @room1.till())
     assert_equal(17.5, @guest.money())
   end
+  def test_check_in_guest_not_enough_money()
+    @room1.check_in(@guest3,@room1)
+    assert_equal(0, @room1.guest_list.length())
+    assert_equal(0, @room1.till())
+    assert_equal(2.5, @guest3.money())
+  end
 
 def test_check_out()
   @room1.check_in(@guest,@room1)
-  @room1.check_in(@guest1,@room1)
+  @room1.check_in(@guest4,@room1)
   @room1.check_out(@guest)
   assert_equal(1, @room1.guest_list.length())
   assert_equal(6.0, @room1.till())
   assert_equal(20.5, @guest.money())
-  assert_equal(9.4, @guest1.money())
+  assert_equal(22.5, @guest4.money())
 end
 
 def test_add_songs()

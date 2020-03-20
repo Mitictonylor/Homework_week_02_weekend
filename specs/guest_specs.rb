@@ -21,6 +21,14 @@ class TestGuest < Minitest::Test
     @song5 = Song.new("shakira", "Hips don't lie")
     @favourite_songs2 = [@song1, @song4, @song5]
     @guest2 = Guest.new("Angelo", @favourite_songs2, 12.4,16)
+    @drink1 = Bar.new(:beer, 3.5, 3.5)
+    @drink2 = Bar.new(:wine, 22.5, 13.5)
+    @drink3 = Bar.new(:water, 1.5, 0)
+    @drink4 = Bar.new(:soda, 3.5, 0)
+    @drink5 = Bar.new(:liquor, 3.0 ,5 )
+
+
+
   end
 
  def test_check_favourite_songs()
@@ -35,12 +43,22 @@ def test_pay_room()
   assert_equal(20.5, @guest.pay(@room1))
 end
 def test_age_is_more_than_18()
-assert_equal(true, @guest.age())
+assert_equal(true, @guest.age?())
 end
 
 def test_age_is_less_than_18()
-assert_equal(false, @guest2.age())
+assert_equal(false, @guest2.age?())
 end
 
+def test_fav_song__scream()
+  assert_equal("Whoo!!", @guest.fav_song())
+end
+def test_check_money_are_enough()
+  assert_equal(true, @guest.check_money_are_enough?(@drink1) )
+end
+
+def test_check_money_are_not_enough()
+  assert_equal(false, @guest2.check_money_are_enough?(@drink2) )
+end
 
 end

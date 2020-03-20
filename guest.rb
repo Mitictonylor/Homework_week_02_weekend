@@ -18,13 +18,25 @@ def add_favourite_song(song)
 end
 
 def pay(room)
-  @money -= room.fee
+  @money -= room.price
 end
-def age()
+
+def fav_song()
+  return "Whoo!!"
+end
+
+def age?()
   return true if @age >=18
   return false if @age <18
 end
 
+def check_money_are_enough?(item)#drink or room
+if @money >= item.price
+  return true
+else
+  return false
+end
+end
 
 
 

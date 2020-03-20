@@ -1,11 +1,11 @@
 class Room
 
-  attr_reader :name, :seats, :fee, :playlist, :guest_list, :till
+  attr_reader :name, :seats, :price, :playlist, :guest_list, :till
 
-  def initialize(name, seats, fee)
+  def initialize(name, seats, price)
     @name = name
     @seats = seats
-    @fee = fee
+    @price = price
     @playlist = []
     @guest_list = []
     @till = 0.0
@@ -16,10 +16,11 @@ def available_seat?()
 end
 
   def check_in(guest,room)
-    if available_seat?() == true
+    if available_seat?() == true && guest.check_money_are_enough?(room) == true && guest.age?() == true
       @guest_list.push(guest)
-      @till += @fee
+      @till += @price
       guest.pay(room)
+
     end
 
     def check_out(guest)
@@ -30,7 +31,6 @@ end
       @playlist.push(song)
     end
   end
-
 
 
 
