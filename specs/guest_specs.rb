@@ -23,12 +23,9 @@ class TestGuest < Minitest::Test
     @guest2 = Guest.new("Angelo", @favourite_songs2, 12.4,16)
     @drink1 = Bar.new(:beer, 3.5, 3.5)
     @drink2 = Bar.new(:wine, 22.5, 13.5)
-    @drink3 = Bar.new(:water, 1.5, 0)
-    @drink4 = Bar.new(:soda, 3.5, 0)
-    @drink5 = Bar.new(:liquor, 3.0 ,5 )
-
-
-
+    @drink3 = Bar.new(:water, 1.5, 0.0)
+    @drink4 = Bar.new(:soda, 3.5, 0.0)
+    @drink5 = Bar.new(:liquor, 3.0 ,5.0 )
   end
 
  def test_check_favourite_songs()
@@ -60,5 +57,10 @@ end
 def test_check_money_are_not_enough()
   assert_equal(false, @guest2.check_money_are_enough?(@drink2) )
 end
+
+# def test_guest_can_buy_drink_over_18_with_money()
+#   assert_equal(true,@guest1.buy_drink(@drink1))
+# end
+
 
 end

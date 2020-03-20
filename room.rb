@@ -16,7 +16,7 @@ def available_seat?()
 end
 
   def check_in(guest,room)
-    if available_seat?() == true && guest.check_money_are_enough?(room) == true && guest.age?() == true
+    if available_seat?() == true && guest.check_money_are_enough?(room) == true
       @guest_list.push(guest)
       @till += @price
       guest.pay(room)
