@@ -57,6 +57,10 @@ def test_check_out()
   assert_equal(9.4, @guest1.money())
 end
 
+def test_add_songs()
+  @room1.add_song(@song1)
+  assert_equal(1,@room1.playlist.length())
+end
 
 
 
