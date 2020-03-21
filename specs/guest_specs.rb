@@ -58,9 +58,6 @@ def test_check_money_are_not_enough()
   assert_equal(false, @guest2.check_money_are_enough?(@drink2) )
 end
 
-# def test_guest_can_buy_drink_over_18_with_money()
-#   assert_equal(true,@guest1.buy_drink(@drink1))
-# end
 
 
 end

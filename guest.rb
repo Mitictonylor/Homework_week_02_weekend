@@ -30,17 +30,17 @@ def age?()
   return false if @age <18
 end
 
+
 def check_money_are_enough?(item)#drink or room
 if @money >= item.price
   return true
 else
   return false
 end
+
+
+
+
+
 end
-
-
-
-
-
-
 end

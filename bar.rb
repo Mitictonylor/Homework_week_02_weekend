@@ -9,7 +9,11 @@ class Bar
   end
 
 def drink_alchool_free?()
-   @alchool_level == 0
+   if @alchool_level == 0.0
+     return true
+   else
+     return false
+   end
 end
 
 
