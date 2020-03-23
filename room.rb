@@ -36,7 +36,7 @@ class Room
   end
 
   def buy_drink(drink, guest)
-      if (drink.drink_alchool_free?() == true && guest.check_money_are_enough?(drink) ==true) || (drink.drink_alchool_free?()==false && guest.age() ==true && guest.check_money_are_enough?(drink) == true)
+      if (drink.drink_alchool_free?() == true && guest.check_money_are_enough?(drink) ==true) || (drink.drink_alchool_free?()==false && guest.age?() ==true && guest.check_money_are_enough?(drink) == true)
         guest.pay(drink)
         @till += drink.price
       end

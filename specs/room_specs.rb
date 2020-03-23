@@ -72,11 +72,11 @@ class TestRoom < Minitest::Test
     assert_equal(1,@room1.playlist.length())
   end
 
-  # def test_guest_buy_alchoolic_drink__have_enough_money()
-  # @room1.buy_drink(@drink1,@guest)
-  # assert_equal(3.5, @room1.till())
-  # assert_equal(20.0, @guest.money())
-  # end
+  def test_guest_buy_alchoolic_drink__have_enough_money()
+  @room1.buy_drink(@drink1,@guest)
+  assert_equal(3.5, @room1.till())
+  assert_equal(20.0, @guest.money())
+  end
 
   def test_guest_buy_alchoolic_drink__dont_have_enough_money()
   @room1.buy_drink(@drink1,@guest5)
